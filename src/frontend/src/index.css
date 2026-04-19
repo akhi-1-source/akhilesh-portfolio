@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "BricolageGrotesque", sans-serif;
+    --font-body: "GeneralSans", sans-serif;
+    --font-mono: "GeistMono", monospace;
+    --radius: 0.625rem;
+
+    --background: 0.08 0 0;
+    --foreground: 0.98 0 0;
+    --card: 0.14 0 0;
+    --card-foreground: 0.98 0 0;
+    --popover: 0.16 0 0;
+    --popover-foreground: 0.98 0 0;
+
+    --primary: 0.7 0.18 200;
+    --primary-foreground: 0.08 0 0;
+
+    --secondary: 0.65 0.12 280;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.22 0 0;
+    --muted-foreground: 0.72 0 0;
+
+    --accent: 0.75 0.15 340;
+    --accent-foreground: 0.08 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.22 0 0;
+    --input: 0.16 0 0;
+    --ring: 0.7 0.18 200;
+
+    --chart-1: 0.7 0.18 200;
+    --chart-2: 0.65 0.12 280;
+    --chart-3: 0.75 0.15 340;
+    --chart-4: 0.6 0.16 160;
+    --chart-5: 0.55 0.14 320;
+
+    --sidebar: 0.12 0 0;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.7 0.18 200;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.75 0.15 340;
+    --sidebar-accent-foreground: 0.08 0 0;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 0.7 0.18 200;
+
+    --glass-blur: blur(10px);
+    --glass-glow: 0 0 20px rgba(112, 180, 255, 0.3);
+    --accent-glow: 0 0 15px rgba(191, 57, 204, 0.4);
+  }
+
+  .dark {
+    --background: 0.08 0 0;
+    --foreground: 0.98 0 0;
+    --card: 0.14 0 0;
+    --card-foreground: 0.98 0 0;
+    --popover: 0.16 0 0;
+    --popover-foreground: 0.98 0 0;
+
+    --primary: 0.7 0.18 200;
+    --primary-foreground: 0.08 0 0;
+
+    --secondary: 0.65 0.12 280;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.22 0 0;
+    --muted-foreground: 0.72 0 0;
+
+    --accent: 0.75 0.15 340;
+    --accent-foreground: 0.08 0 0;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.22 0 0;
+    --input: 0.16 0 0;
+    --ring: 0.7 0.18 200;
+
+    --chart-1: 0.7 0.18 200;
+    --chart-2: 0.65 0.12 280;
+    --chart-3: 0.75 0.15 340;
+    --chart-4: 0.6 0.16 160;
+    --chart-5: 0.55 0.14 320;
+
+    --sidebar: 0.12 0 0;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.7 0.18 200;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.75 0.15 340;
+    --sidebar-accent-foreground: 0.08 0 0;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 0.7 0.18 200;
+
+    --glass-blur: blur(10px);
+    --glass-glow: 0 0 20px rgba(112, 180, 255, 0.3);
+    --accent-glow: 0 0 15px rgba(191, 57, 204, 0.4);
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistMono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 400 500;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-panel {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.07) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+    @apply backdrop-blur-xl border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px
+      rgba(112, 180, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(112, 180, 255, 0.04) 50%,
+      rgba(191, 57, 204, 0.04) 100%
+    );
+    @apply backdrop-blur-2xl border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 30px
+      rgba(112, 180, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .glass-button {
+    @apply px-6 py-3 rounded-xl border border-primary/40 text-primary hover:border-primary/60 transition-all duration-300 font-display font-semibold cursor-pointer;
+    background: linear-gradient(
+      135deg,
+      rgba(112, 180, 255, 0.15) 0%,
+      rgba(112, 180, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(112, 180, 255, 0.2), inset 0 1px 0
+      rgba(255, 255, 255, 0.15);
+    text-shadow: 0 0 8px rgba(112, 180, 255, 0.5);
+  }
+
+  .glass-button:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(112, 180, 255, 0.25) 0%,
+      rgba(112, 180, 255, 0.12) 100%
+    );
+    box-shadow: 0 0 30px rgba(112, 180, 255, 0.5), 0 0 60px
+      rgba(112, 180, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  .glass-button-accent {
+    @apply px-6 py-3 rounded-xl border border-accent/40 text-accent hover:border-accent/60 transition-all duration-300 font-display font-semibold cursor-pointer;
+    background: linear-gradient(
+      135deg,
+      rgba(191, 57, 204, 0.15) 0%,
+      rgba(191, 57, 204, 0.05) 100%
+    );
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(191, 57, 204, 0.2), inset 0 1px 0
+      rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 8px rgba(191, 57, 204, 0.5);
+  }
+
+  .glass-button-accent:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(191, 57, 204, 0.28) 0%,
+      rgba(191, 57, 204, 0.12) 100%
+    );
+    box-shadow: 0 0 35px rgba(191, 57, 204, 0.55), 0 0 70px
+      rgba(191, 57, 204, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  .skill-glass-btn {
+    @apply px-4 py-2.5 rounded-xl border text-sm font-display font-medium transition-all duration-300 cursor-pointer select-none;
+    background: linear-gradient(
+      135deg,
+      rgba(112, 180, 255, 0.1) 0%,
+      rgba(155, 100, 255, 0.08) 50%,
+      rgba(191, 57, 204, 0.08) 100%
+    );
+    backdrop-filter: blur(16px);
+    border-color: rgba(112, 180, 255, 0.25);
+    color: rgba(180, 220, 255, 0.9);
+    box-shadow: 0 0 15px rgba(112, 180, 255, 0.15), inset 0 1px 0
+      rgba(255, 255, 255, 0.12), inset 0 0 30px rgba(112, 180, 255, 0.05);
+    text-shadow: 0 0 8px rgba(112, 180, 255, 0.4);
+  }
+
+  .skill-glass-btn:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(112, 180, 255, 0.22) 0%,
+      rgba(155, 100, 255, 0.18) 50%,
+      rgba(191, 57, 204, 0.15) 100%
+    );
+    border-color: rgba(112, 180, 255, 0.5);
+    box-shadow: 0 0 25px rgba(112, 180, 255, 0.4), 0 0 50px
+      rgba(112, 180, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 8px
+      24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    color: rgba(200, 235, 255, 1);
+  }
+
+  .accent-glow {
+    box-shadow: var(--accent-glow);
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 20px rgba(112, 180, 255, 0.6), 0 0 40px
+      rgba(112, 180, 255, 0.3);
+  }
+
+  .text-glow-magenta {
+    text-shadow: 0 0 20px rgba(191, 57, 204, 0.7), 0 0 40px
+      rgba(191, 57, 204, 0.3);
+  }
+
+  .bg-glass-blob {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(112, 180, 255, 0.12) 0%,
+      transparent 70%
+    );
+    filter: blur(40px);
+    border-radius: 50%;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(112, 180, 255, 0.3) 30%,
+      rgba(191, 57, 204, 0.3) 70%,
+      transparent 100%
+    );
+  }
+}
